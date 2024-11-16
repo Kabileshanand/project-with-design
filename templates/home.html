@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Operations Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: url('') no-repeat center center fixed;
+            background-size: cover; /* Ensures full background coverage */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #f99090;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6); /* Slightly transparent background */
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #f1f1f1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        a {
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #000;
+            background-color: #000; /* Button color set to black */
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        a:hover {
+            background-color: #a647c5;
+            color: #333;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Business Operations Assistant</h1>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('signup') }}">Sign Up</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <!-- Link to Google Fonts for Poppins font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Background styling */
+        body {
+            background: url('file:///Users/kabileshanand/Desktop/project%20with%20design/img/signupbg.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        /* Container styling */
+        .signup-container {
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            width: 300px;
+            animation: fadeIn 1.2s ease;
+        }
+
+        /* Animation for container */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Heading styling */
+        h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        /* Label and input styling */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 400;
+            color: #ddd;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            font-size: 1em;
+        }
+
+        /* Button styling */
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            font-weight: 600;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect for button */
+        button:hover {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Signup</h2>
+        <form action="{{ url_for('signup') }}" method="post">
+            <label>Username:</label>
+            <input type="text" name="username" required><br>
+            <label>Password:</label>
+            <input type="password" name="password" required><br>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>

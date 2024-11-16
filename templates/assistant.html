@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Operations Assistant</title>
+    <!-- Link to Google Fonts for Poppins font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            background: linear-gradient(135deg, #4c83ff, #ff7d7d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* Main container with animation */
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            animation: fadeIn 1.2s ease;
+        }
+
+        /* Keyframes for animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: 600;
+            color: #ffed4b;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Label and select styling */
+        label {
+            font-weight: 500;
+            color: #f1f1f1;
+        }
+
+        select,
+        textarea {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1em;
+            color: #333;
+        }
+
+        textarea {
+            resize: none;
+            margin-top: 5px;
+        }
+
+        /* Button styling */
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: 600;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Button hover effects */
+        button:hover {
+            background-color: #ffed4b;
+            color: #333;
+            transform: scale(1.05);
+        }
+
+        /* Response and link styling */
+        h3 {
+            font-size: 1.2em;
+            color: #ffed4b;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #f1f1f1;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        a {
+            font-size: 1em;
+            color: #ffed4b;
+            text-decoration: none;
+            margin-top: 15px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Business Operations Assistant</h1>
+        <form method="POST">
+            <label>Select Operation:</label>
+            <select name="operation">
+                <option value="Business Analysis">Business Analysis</option>
+                <option value="Market Insights">Market Insights</option>
+                <option value="Financial Summary">Financial Summary</option>
+                <option value="Customer Feedback">Customer Feedback</option>
+            </select><br><br>
+
+            <label>Enter details:</label><br>
+            <textarea name="input_text" rows="5" placeholder="Enter your details here..."></textarea><br><br>
+
+            <button type="submit">Generate Response</button>
+        </form>
+
+        {% if result %}
+            <h3>Response:</h3>
+            <p>{{ result }}</p>
+        {% endif %}
+        
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>
