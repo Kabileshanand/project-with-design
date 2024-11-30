@@ -2,10 +2,23 @@ from flask import Flask, render_template, request, redirect, session, url_for
 from transformers import pipeline
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_socketio import SocketIO, emit
 import tensorflow as tf
+import random 
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
+socketio = SocketIO(app)
+
+@socketio.on('connect')
+def handle_connect():
+    print("Client connected")
+
+@socketio.on('request_data')
+def handle_request_data():
+    # Example: Generate random data for the graph
+    data = {"x": random.randint(0, 100), "y": random.randint(0, 100)}
+    emit('update_graph', data)
 
 # MongoDB setup (replace 'mongodb://localhost:27017' with your MongoDB connection string)
 client = MongoClient('mongodb+srv://kabi123:kabi123@cluster0.bunvu.mongodb.net/')
